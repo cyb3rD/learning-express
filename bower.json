@@ -1,0 +1,22 @@
+{
+  "name": "library",
+  "description": "Sample Node.js Express4 project",
+  "main": "app.js",
+  "authors": [
+    "Nikolay Ignatyev"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/cyb3rD/learning-express",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "font-awesome": "^4.6.0"
+  }
+}

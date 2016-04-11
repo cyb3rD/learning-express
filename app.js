@@ -1,3 +1,20 @@
 var express = require('express');
 
-console.log('Hello Node.JS!');
+var app = express();
+
+var port = 5000;
+
+app.use(express.static('public'));
+app.use(express.static('src/views'));
+
+app.get('/', function(request, response) {
+    response.send('Hello from server!');
+});
+
+app.get('/books', function(request, response) {
+    response.send('Hello from Books!');
+});
+
+app.listen(5000, function(err) {
+    console.log('running server on port: ' + port);
+});
