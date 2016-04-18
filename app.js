@@ -1,29 +1,33 @@
 var express = require('express'),
-    bookRouter = require('./src/routes/bookRoute'),
     app = express(),
-    port = process.env.port || 5000;
+    port = process.env.port || 5000,
+    nav = [{
+                    Link:'/Books',
+                    Text: 'Books'
+                },{
+                    Link: '/Authors',
+                    Text: 'Authors'
+                }],
+
+    bookRouter = require('./src/routes/bookRoute')(nav); // pass array of books
 
 app.use(express.static('public'));
 
 app.set('views','./src/views');
 // using Jade template
 // app.set('view engine', 'jade');
+
 // using ejs
 app.set('view engine', 'ejs');
 
 app.use('/Books', bookRouter);
+app.use('/Book', bookRouter);
 
 // render page using view engine
 app.get('/', function(req, res) {
     res.render('index',{
         title: 'Books store',
-        nav: [{
-                Link:'/Books',
-                Text: 'Books'
-            },{
-                Link: '/Authors',
-                Text: 'Authors'
-            }]
+        nav: nav
     });
 });
 
