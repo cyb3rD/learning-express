@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/cyb3rD/learning-express#readme",
   "dependencies": {
-    "express": "^4.13.4"
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "jade": "^1.11.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
@@ -27,6 +29,7 @@
     "gulp-jshint": "^2.0.0",
     "jshint": "^2.9.1",
     "jshint-stylish": "^2.1.0",
+    "nodemon": "^1.9.1",
     "wiredep": "^4.0.0"
   }
 }
