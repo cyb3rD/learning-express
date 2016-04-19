@@ -9,7 +9,9 @@ var express = require('express'),
                     Text: 'Authors'
                 }],
 
-    bookRouter = require('./src/routes/bookRoute')(nav); // pass array of books
+    bookRouter = require('./src/routes/bookRoute')(nav), // pass array of nav links
+    authorRouter = require('./src/routes/authorRoute')(nav),
+    adminRouter = require('./src/routes/adminRoute');
 
 app.use(express.static('public'));
 
@@ -22,6 +24,8 @@ app.set('view engine', 'ejs');
 
 app.use('/Books', bookRouter);
 app.use('/Book', bookRouter);
+app.use('/Authors', authorRouter);
+app.use('/Admin', adminRouter());
 
 // render page using view engine
 app.get('/', function(req, res) {

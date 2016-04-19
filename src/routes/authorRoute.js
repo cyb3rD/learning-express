@@ -1,6 +1,6 @@
 var express = require('express');
 
-var bookRouter = express.Router();
+var authorRouter = express.Router();
 
 // function for creating router
 var router = function(nav) {
@@ -56,26 +56,26 @@ var router = function(nav) {
         }
     ];
 
-    bookRouter.route('/')
+    authorRouter.route('/')
         .get(function(req, res) {
-            res.render('booksListView',{
-                title: 'Books',
+            res.render('authorsListView',{
+                title: 'Authors',
                 nav: nav,
                 books: Books // pass array of the books
             });
         });
 
-    bookRouter.route('/:id')
-        .get(function(req, res) {
-            var id = req.params.id;
-            res.render('bookView',{
-                title: 'Book',
-                nav: nav,
-                book: Books[id] // pass book ID
-            });
-        });
+    // bookRouter.route('/:id')
+    //     .get(function(req, res) {
+    //         var id = req.params.id;
+    //         res.render('bookView',{
+    //             title: 'Book',
+    //             nav: nav,
+    //             book: Books[id] // pass book ID
+    //         });
+    //     });
 
-    return bookRouter;
+    return authorRouter;
 
 }; //router
 
