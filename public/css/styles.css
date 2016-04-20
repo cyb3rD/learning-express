@@ -21,7 +21,7 @@ footer {
   padding-top:40px;
   padding-bottom:40px;
   background-color:#cecece;
- 
+
 }
 
 
@@ -63,7 +63,7 @@ footer {
 
 .top-spacer {
   background-color:#ffffff;
-  height:40px;
+  height:50px;
 }
 
 a,a:hover {
@@ -157,7 +157,8 @@ a,a:hover {
   padding:6px;
   color:#fff;
 }
-    
+
+
 .btn-twitter {background-color:#4099FF;color:#fff;}
 .btn-facebook {background-color:#3B5998;color:#fff;}
 .btn-google-plus {background-color:#d34836;color:#fff;}
@@ -165,3 +166,18 @@ a,a:hover {
 .btn-twitter:hover {background-color:#3088FF;color:#62BBFF;}
 .btn-facebook:hover {background-color:#2A4998;color:#4C6BBA;}
 .btn-google-plus:hover {background-color:#C23836;color:#E45A58;}
+
+/* custom styles */
+.form-signin {
+  max-width: 330px;
+}
+
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}

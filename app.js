@@ -11,7 +11,8 @@ var express = require('express'),
 
     bookRouter = require('./src/routes/bookRoute')(nav), // pass array of nav links
     authorRouter = require('./src/routes/authorRoute')(nav),
-    adminRouter = require('./src/routes/adminRoute');
+    adminRouter = require('./src/routes/adminRoute'),
+    authRouter = require('./src/routes/authRoute');
 
 app.use(express.static('public'));
 
@@ -26,6 +27,7 @@ app.use('/Books', bookRouter);
 app.use('/Book', bookRouter);
 app.use('/Authors', authorRouter);
 app.use('/Admin', adminRouter());
+app.use('/Auth', authRouter());
 
 // render page using view engine
 app.get('/', function(req, res) {
