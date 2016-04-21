@@ -1,4 +1,5 @@
 var express = require('express'),
+    bodyParser = require('body-parser'),
     app = express(),
     port = process.env.port || 5000,
     nav = [{
@@ -15,6 +16,8 @@ var express = require('express'),
     authRouter = require('./src/routes/authRoute');
 
 app.use(express.static('public'));
+app.use(bodyParser.json()); // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({extended: true}));// to support URL-encoded bodies
 
 app.set('views','./src/views');
 // using Jade template
