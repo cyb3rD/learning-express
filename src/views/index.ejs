@@ -57,20 +57,10 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h1>LibraryApp
+          <h1><%=appTitle%>
             <p class="lead"></p>
           </h1>
         </div>
-        <!-- div class="col-md-5">
-          <div class="well well-lg">
-            <div class="row">
-              <div class="col-sm-12">
-
-
-              </div>
-            </div>
-          </div>
-        </div-->
       </div>
     </div><!-- /cont -->
 
@@ -96,14 +86,20 @@
             <!--/stories-->
             <div class="row">
               <div class="col-md-6 col-sm-6 text-center">
-                Sign In
+                Sign In Form
+                <form  class="form-signup" name="signUpForm" action="/Auth/signIn" method="post">
+                  <input class="form-control" type="userName" id="userName" placeholder="UserName" name="userName">
+                  <input class="form-control" type="password" id="password" placeholder="Password" name="password">
+                  <button type="submit" class="btn btn-md btn-info btn-block">Sign In</button>
+                </form>
               </div>
               <div class="col-md-6 col-sm-6 text-center">
-                Sign Up
-                <form  name="signUpForm" action="/Auth/signUp" method="post">
-                  <input type="userName" id="userName" placeholder="UserName" name="userName">
-                  <input type="password" id="password" placeholder="password" name="password">
-                  <input type="submit" class="btn btn-md btn-primary" value="Sign Up">
+                Sign Up Form
+                <form  class="form-signin" name="signUpForm" action="/Auth/signUp" method="post">
+                  <input class="form-control" type="userName" id="userName" placeholder="UserName" name="userName">
+                  <input class="form-control" type="password" id="password" placeholder="Password" name="password">
+                  <button type="submit" class="btn btn-md btn-primary btn-block">Sign Up</button>
+                </form>
               </div>
 
             </div>

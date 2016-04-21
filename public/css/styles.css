@@ -168,16 +168,23 @@ a,a:hover {
 .btn-google-plus:hover {background-color:#C23836;color:#E45A58;}
 
 /* custom styles */
-.form-signin {
+.form-signin, .form-signup {
   max-width: 330px;
+  margin: 0 auto;
 }
 
-.form-signin .form-control {
+.form-signin .form-control,
+.form-signup .form-control{
   position: relative;
+  margin-bottom: 10px;
   height: auto;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
   padding: 10px;
   font-size: 16px;
+}
+
+.btn-block {
+  height: 40px;
 }

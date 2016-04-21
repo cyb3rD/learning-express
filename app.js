@@ -1,6 +1,10 @@
 var express = require('express'),
-    bodyParser = require('body-parser'),
-    app = express(),
+    bodyParser = require('body-parser'),    // parse request (JSON, URL-encoded)
+    cookieParser = require('cookie-parser'), // parse cookie for the session
+    passport = require('passport'),         // passport module
+    session = require('express-session'); // passport using this for store session
+
+var app = express(),
     port = process.env.port || 5000,
     nav = [{
                     Link:'/Books',
@@ -8,16 +12,25 @@ var express = require('express'),
                 },{
                     Link: '/Authors',
                     Text: 'Authors'
-                }],
+                }];
 
-    bookRouter = require('./src/routes/bookRoute')(nav), // pass array of nav links
+var bookRouter = require('./src/routes/bookRoute')(nav), // pass array of nav links
     authorRouter = require('./src/routes/authorRoute')(nav),
     adminRouter = require('./src/routes/adminRoute'),
     authRouter = require('./src/routes/authRoute');
 
-app.use(express.static('public'));
+// Using middleware
+app.use(express.static('public')); // static content client JS, CSS, libs
 app.use(bodyParser.json()); // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({extended: true}));// to support URL-encoded bodies
+// Session & Auth
+app.use(cookieParser());
+//see https://github.com/expressjs/session
+app.use(session({secret: 'libraryApp',
+                saveUninitialized: true,
+                resave: true}));
+
+require('./src/config/passport')(app);
 
 app.set('views','./src/views');
 // using Jade template
@@ -36,6 +49,7 @@ app.use('/Auth', authRouter());
 app.get('/', function(req, res) {
     res.render('index',{
         title: 'Books store',
+        appTitle: 'LibraryApp (Node.JS + Express 4.0)',
         nav: nav
     });
 });

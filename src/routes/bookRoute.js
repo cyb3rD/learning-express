@@ -19,6 +19,7 @@ var router = function(nav) {
                         res.render('booksListView',{
                             title: 'Books',
                             nav: nav,
+                            appTitle: 'LibraryApp (Books)',
                             books: results // pass array from MongoDB
                         });
                     }
